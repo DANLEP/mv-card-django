@@ -1,0 +1,88 @@
+{% extends 'personal_account/base.html' %}
+{% block content %}
+{% load static %}
+<aside class="left-bar">
+    <div class="header-left-bar">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'landing/img/logo.svg' %}" alt="Mountain View" width="200">
+        </a>
+    </div>
+    <nav class="nav-list">
+        <ul class="reset">
+            <li class="nav-item">
+                <a href="{% url 'account' %}">
+                    <div class="nav-item-container">
+                        <i class="app-icon icon"></i>
+                        <p>Історія</p>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item selected">
+                <div class="nav-item-container">
+                    <i class="history-icon icon"></i>
+                    <p>Історія</p>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</aside>
+<aside class="right-bar">
+    <div class="right-bar-container">
+        <div class="header-right-bar">
+            <div class="header-column">
+                <h1>Заяви</h1>
+            </div>
+            <div class="header-column">
+                <div class="user-email">admin@admin.ua</div>
+                <a href="#" class="logout">
+                    <i class="logout-icon icon"></i>
+                    <p>Вийти</p>
+                </a>
+            </div>
+        </div>
+        <div class="main-right-bar">
+            {% if app_count == 0 %}
+                <p class="no-results">Заяв немає :(</p>
+            {% else %}
+                {% for app in applications %}
+                    <div class="application">
+                    <div class="application-header">
+                        <div class="application-container">
+                            <div class="application-header-column">
+                                <p class="title-value">Заява #{{ app.pk }}</p>
+                            </div>
+                            <div class="application-header-column">
+                                <p class="title">Статус: </p>
+                                <p class="title-value">{{ app.status }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-container">
+                        <div class="first-name">
+                            <p class="title">Ім'я: </p>
+                            <p class="title-value">{{ app.first_name }}</p>
+                        </div>
+                        <div class="last-name">
+                            <p class="title">Призвище: </p>
+                            <p class="title-value">{{ app.last_name }}</p>
+                        </div>
+                    </div>
+                    <div class="application-container">
+                        <div class="email">
+                            <p class="title">Email: </p>
+                            <p class="title-value">{{ app.email }}</p>
+                        </div>
+                    </div>
+                    <div class="application-container">
+                        <div class="email">
+                            <p class="title">Телефон: </p>
+                            <p class="title-value">{{ app.phone_number }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</aside>
+{% endblock %}

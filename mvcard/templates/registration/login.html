@@ -1,0 +1,20 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+        <div class="label">
+                <h1>Вхід</h1>
+            </div>
+            <form class="form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input class="form-input" type="text" name="username" maxlength="150" placeholder="Логін">
+                    <input class="form-input" type="password" name="password"  placeholder="Пароль">
+                    <button type="submit" class="submit-btn">Увійти</button>
+                </div>
+                <div class="action-container">
+                    <a class="link" href="{% url 'password_reset' %}">Забули свій пароль?</a>
+                </div>
+                <div class="action-container">
+                    <a class="link" href="{% url 'register' %}">Реєстрація</a>
+                </div>
+            </form>
+{% endblock %}

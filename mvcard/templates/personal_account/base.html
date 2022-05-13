@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet</title>
+    <link rel="stylesheet" href="{% static 'personal_account/css/main.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'landing/img/icon.ico' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="main">
+      {%block content%}
+      {%endblock%}
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                <p>© 2022 Mountain View. Всі права захищені. <a href="https://t.me/danlep">Daniil Movchan</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/inst.svg' %}" alt="instagram"></a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/smt.svg' %}" alt="drible"></a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/tw.svg' %}" alt="tweter"></a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/yt.svg' %}" alt="youtube"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Mountain View | EPAM</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'landing/img/icon.ico' %}">
+    <link rel="stylesheet" href="{% static 'landing/css/main.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="main-page">
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'landing/img/logo.svg' %}" alt="MountainView"></a>
+            </div>
+            <div class="nav">
+                <a class="nav-link" href="#">Додаток</a>
+                <a class="nav-link" href="#">Можливості</a>
+                <a class="nav-link" href="#">Вартість</a>
+                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" href="#">Контакти</a>
+            </div>
+            <div class="login">
+                <a class="login-btn" href="{% url 'login' %}">Кабінет оператора</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main-container">
+            <div class="main-content">
+                <h1 class="main-header">MV <a>Visa</a> Card</h1>
+                <div class="main-text">
+                    <p>
+                        Отримуйте до 8% кешбек, оплачуючи покупки в криптовалюті.
+                    </p>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="main-form">
+                            <div class="form-container name">
+                                <div class="form-container-column">
+                                    <div class="input-container">
+                                        <label class="input-label">Ім'я</label>
+                                        <input type="text" class="input" maxlength="30" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="form-container-column">
+                                    <div class="form-container-row">
+                                        <div class="input-container">
+                                            <label class="input-label">Прізвище</label>
+                                            <input type="text" class="input" maxlength="30" name="last_name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-container">
+                                <div class="input-container">
+                                    <label class="input-label">Email</label>
+                                    <input type="email" class="input" name="email" maxlength="254" required>
+                                </div>
+                            </div>
+                            <div class="form-container">
+                                <div class="input-container">
+                                    <label class="input-label">Телефон</label>
+                                    <input type="tel" class="input" name="phone_number" pattern="[0-9]{10}" placeholder="099 123 4567" required>
+                                </div>
+                            </div>
+                    </div>
+                    {% if not active %}
+                        {% if status%}
+                            <p>✅ Заява надіслана!</p>
+                        {% else %}
+                            <p>❌ Ви вже відправили заяву!</p>
+                        {% endif %}
+                    {% else %}
+                        <button type="submit" class="button">Залишити заявку</button>
+                    {% endif %}
+
+                </form>
+            </div>
+            <div class="main-image">
+                <img src="{% static 'landing/img/header-image.png' %}" alt="App TaскТрекер">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                <p>© 2022 Mountain View. Всі права захищені. <a href="https://t.me/danlep">Daniil Movchan</a></p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="footer-socials-items">
+                    <img src="{% static 'landing/img/social/inst.svg' %}" alt="instagram">
+                </a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/smt.svg' %}" alt="drible"></a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/tw.svg' %}" alt="tweter"></a>
+                <a href="#" class="footer-socials-items"><img src="{% static 'landing/img/social/yt.svg' %}" alt="youtube"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

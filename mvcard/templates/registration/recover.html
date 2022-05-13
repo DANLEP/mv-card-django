@@ -1,0 +1,16 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+        <div class="label">
+            <h1>Відновлення паролю</h1>
+        </div>
+        <form class="form" action="{% url 'password_reset' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <input class="form-input" type="email" name="email" placeholder="Email">
+                <button type="submit" class="submit-btn">Відправити лист</button>
+            </div>
+            <div class="action-container">
+                <a class="link" href="{% url 'login' %}">Вхід</a>
+            </div>
+        </form>
+{% endblock %}

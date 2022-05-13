@@ -1,0 +1,19 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+            <div class="label">
+                <h1>Реєстрація</h1>
+            </div>
+            <form class="form" action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input class="form-input" type="text" name="username" placeholder="Логін" required>
+                    <input class="form-input" type="email" name="email" placeholder="Email" required>
+                    <input class="form-input" type="password" name="password1" placeholder="Пароль" required>
+                    <input class="form-input" type="password" name="password2" placeholder="Підтвердження паролю" required>
+                    <button type="submit" class="submit-btn">Зареєструватись</button>
+                </div>
+                <div class="action-container">
+                    <a class="link" href="#">Вхід</a>
+                </div>
+            </form>
+{% endblock %}
