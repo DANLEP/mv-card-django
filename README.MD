@@ -7,5 +7,6 @@
 4. Install requirements: <code>python install -r requirements.txt</code>
 5. <code>cd mvcard</code>
 6. Migrate db: <code>python manage.py migrate</code>
-7. Run server: <code>python manage.py runserver</code>
-8. Congrats!
+7. Create superuser: <code>python manage.py createsuperuser</code>
+8. Run server: <code>python manage.py runserver</code>
+9. Congrats!
