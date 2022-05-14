@@ -53,3 +53,12 @@ def decline_application(request, id):
     app.status = Status.objects.get(pk=3)
     app.save()
     return redirect('account')
+
+
+def remove_application(request, id):
+    if request.user.is_anonymous:
+        return redirect('login')
+
+    app = Application.objects.get(pk=id)
+    app.delete()
+    return redirect('account')

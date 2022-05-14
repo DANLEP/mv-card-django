@@ -7,4 +7,5 @@ urlpatterns = [
     path('history/', ApplicationsHistoryListView.as_view(), name='app-history'),
     path('accept/<int:id>', accept_application, name='app-accept'),
     path('decline/<int:id>', decline_application, name='app-decline'),
+    path('remove/<int:id>', remove_application, name='app-decline'),
 ]
